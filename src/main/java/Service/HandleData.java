@@ -19,10 +19,10 @@ public class HandleData {
 		GoalScorers result2 = GoalScorersUtils.lire(filePath2);
 		
 		System.out.println(result2);
-		if (result2 == null) {
-			System.out.println("L'application doit s'arrétée en raison d'une erreur d'exécution.");
-			System.exit(-1);
-		}
+//		if (result2 == null) {
+//			System.out.println("L'application doit s'arrétée en raison d'une erreur d'exécution.");
+//			System.exit(-1);
+//		}
 
 	}
 }
