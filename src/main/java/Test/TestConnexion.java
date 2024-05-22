@@ -9,8 +9,8 @@ public class TestConnexion {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProjetJpa");
 		EntityManager em = emf.createEntityManager();
 //		em.getTransaction().begin();
-System.out.println(em);
-		
+		System.out.println(em);
+
 //		em.getTransaction().commit();
 		em.close();
 		emf.close();

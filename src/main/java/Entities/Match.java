@@ -24,19 +24,139 @@ public class Match {
 	@Column(name = "CITY")
 	private String city;
 	@Column(name = "NEUTRAL")
-	private boolean neutral;
+	private Boolean neutral;
 	@Column(name = "HOME_SCORE")
 	private String homeScore;
 	@Column(name = "AWAY_SCORE")
 	private String AwayScore;
-	@OneToMany(mappedBy="match")
+	@OneToMany(mappedBy = "match")
 	private Set<TirAuBut> tirAuButs;
 	@ManyToOne
-	@JoinColumn(name="COUNTRY")
-	private Team team;
+	@JoinColumn(name = "COUNTRY")
+	private Team home_team;
 	@ManyToOne
-	@JoinColumn(name="NOM_TOURNOI")
+	@JoinColumn(name = "COUNTRY")
+	private Team away_team;
+	@ManyToOne
+	@JoinColumn(name = "NOM_TOURNOI")
 	private Tournoi tournoi;
-	@OneToMany(mappedBy="match")
+	@OneToMany(mappedBy = "match")
 	private Set<But> buts;
+
+	public Match() {
+		super();
+	}
+
+	
+	public Match(Integer id, LocalDate dateMatch, String city, Boolean neutral, String homeScore, String awayScore,
+			Set<TirAuBut> tirAuButs, Team home_team, Team away_team, Tournoi tournoi, Set<But> buts) {
+		super();
+		this.id = id;
+		this.dateMatch = dateMatch;
+		this.city = city;
+		this.neutral = neutral;
+		this.homeScore = homeScore;
+		AwayScore = awayScore;
+		this.tirAuButs = tirAuButs;
+		this.home_team = home_team;
+		this.away_team = away_team;
+		this.tournoi = tournoi;
+		this.buts = buts;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public LocalDate getDateMatch() {
+		return dateMatch;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public Boolean getNeutral() {
+		return neutral;
+	}
+
+	public String getHomeScore() {
+		return homeScore;
+	}
+
+	public String getAwayScore() {
+		return AwayScore;
+	}
+
+	public Set<TirAuBut> getTirAuButs() {
+		return tirAuButs;
+	}
+
+	public Team getHome_team() {
+		return home_team;
+	}
+
+	public Team getAway_team() {
+		return away_team;
+	}
+
+	public Tournoi getTournoi() {
+		return tournoi;
+	}
+
+	public Set<But> getButs() {
+		return buts;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public void setDateMatch(LocalDate dateMatch) {
+		this.dateMatch = dateMatch;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public void setNeutral(Boolean neutral) {
+		this.neutral = neutral;
+	}
+
+	public void setHomeScore(String homeScore) {
+		this.homeScore = homeScore;
+	}
+
+	public void setAwayScore(String awayScore) {
+		AwayScore = awayScore;
+	}
+
+	public void setTirAuButs(Set<TirAuBut> tirAuButs) {
+		this.tirAuButs = tirAuButs;
+	}
+
+	public void setHome_team(Team home_team) {
+		this.home_team = home_team;
+	}
+
+	public void setAway_team(Team away_team) {
+		this.away_team = away_team;
+	}
+
+	public void setTournoi(Tournoi tournoi) {
+		this.tournoi = tournoi;
+	}
+
+	public void setButs(Set<But> buts) {
+		this.buts = buts;
+	}
+
+	@Override
+	public String toString() {
+		return "Match [id=" + id + ", dateMatch=" + dateMatch + ", city=" + city + ", neutral=" + neutral
+				+ ", homeScore=" + homeScore + ", AwayScore=" + AwayScore + ", tirAuButs=" + tirAuButs + ", home_team="
+				+ home_team + ", away_team=" + away_team + ", tournoi=" + tournoi + ", buts=" + buts + "]";
+	}
+
 }
