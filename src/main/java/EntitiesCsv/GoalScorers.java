@@ -3,6 +3,7 @@ package EntitiesCsv;
 import java.util.ArrayList;
 import java.util.List;
 
+import EntitiesData.GoalScorersData;
 import EntitiesData.ResultData;
 
 public class GoalScorers {

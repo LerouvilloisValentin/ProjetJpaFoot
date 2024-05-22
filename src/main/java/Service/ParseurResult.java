@@ -13,7 +13,7 @@ public class ParseurResult {
 		String[] morceaux = ligne.split(",");
 
 		 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-	       LocalDate dateMatch = LocalDate.parse(morceaux[0], formatter);
+	    LocalDate dateMatch = LocalDate.parse(morceaux[0], formatter);
 		String homeTeam = morceaux[1];
 		String AwayTeam = morceaux[2];
 		String homeScore = morceaux[3];
@@ -29,6 +29,6 @@ public class ParseurResult {
 				awayScoreInt,tournament,city,country, neutral);
 		
 		result.getResultData().add(data);
-//		System.out.println(result);
+//		System.out.println(city);
 	}
 }
