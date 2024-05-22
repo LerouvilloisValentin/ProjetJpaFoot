@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+	<persistence-unit name="ProjetJpa"
+		transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<properties>
+			<property name="jakarta.persistence.jdbc.url"
+				value="jdbc:mysql://bkyi73tqaepewunojj3b-mysql.services.clever-cloud.com:3306/bkyi73tqaepewunojj3b" />
+			<property name="jakarta.persistence.jdbc.user"
+				value="udrkpf2dyozhxjcw" />
+			<property name="jakarta.persistence.jdbc.password"
+				value="5CVmDW41bKhNAltbULZs" />
+			<!-- desactiver l'autodetection des classes de type @Entity -->
+			<property name="hibernate.archive.autodetection" value="" />
+			<!-- Activation de la génération des tables manquantes uniquement -->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<!-- Drop and create à chaque redémarrage -->
+			<property
+				name="jakarta.persistence.schema-generation.database.action"
+				value="drop-and-create" />
+			<!-- Affichage des requêtes SQL -->
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name=" hibernate.format_sql" value="true" />
+		</properties>
+	</persistence-unit>
+</persistence>
+
