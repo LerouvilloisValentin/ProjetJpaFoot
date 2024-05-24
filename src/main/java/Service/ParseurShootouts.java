@@ -4,11 +4,13 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 import EntitiesCsv.Result;
+import EntitiesCsv.Shootouts;
 import EntitiesData.ResultData;
+import EntitiesData.ShootoutsData;
 
-public class ParseurResult {
+public class ParseurShootouts {
 
-	public static void ajoutLigne(Result result, String ligne) {
+	public static void ajoutLigne(Shootouts shootouts, String ligne) {
 		/*
 		 * Permet de diviser les sous chaine (morceaux) en utilisant une virgule
 		 */
@@ -19,22 +21,19 @@ public class ParseurResult {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		LocalDate dateMatch = LocalDate.parse(morceaux[0], formatter);
 		String homeTeam = morceaux[1];
-		String AwayTeam = morceaux[2];
-		String homeScore = morceaux[3];
-		String awayScore = morceaux[4];
-		String tournament = morceaux[5];
-		String city = morceaux[6];
-		String country = morceaux[7];
-		Boolean neutral = Boolean.parseBoolean(morceaux[8]);
+		String awayTeam = morceaux[2];
+		String winner = morceaux[3];
+		/*
+		 * Vérifiez si la colonne firstShooter est présente
+		 */
+		String firstShooter = morceaux.length > 4 ? morceaux[4] : " ";
 		/*
 		 * stock les donnée dans un objet de type GoalScorersData
 		 */
-		ResultData data = new ResultData(dateMatch, homeTeam, AwayTeam, homeScore, awayScore, tournament, city, country,
-				neutral);
+		ShootoutsData data = new ShootoutsData(dateMatch, homeTeam, awayTeam, winner, firstShooter);
 		/*
 		 * ajoute ces données dans une liste d'objet de type GoalScorers
 		 */
-		result.getResultData().add(data);
-//		System.out.println(city);
+		shootouts.getShootoutsData().add(data);
 	}
 }

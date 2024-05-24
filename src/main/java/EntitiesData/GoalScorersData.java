@@ -2,6 +2,9 @@ package EntitiesData;
 
 import java.time.LocalDate;
 
+/*
+ * class correspondants aux élément du fichier csv goalscorer
+ */
 public class GoalScorersData {
 
 	private LocalDate date;
@@ -97,9 +100,9 @@ public class GoalScorersData {
 
 	@Override
 	public String toString() {
-		return "GoalScorersData date=" + date + ", homeTeam=" + homeTeam + ", awayTeam=" + awayTeam + ", teamScorer="
+		return "GoalScorersData [date=" + date + ", homeTeam=" + homeTeam + ", awayTeam=" + awayTeam + ", teamScorer="
 				+ teamScorer + ", scorer=" + scorer + ", minScorer=" + minScorer + ", isOwnGoal=" + isOwnGoal
-				+ ", isPenalty=" + isPenalty + "\n";
+				+ ", isPenalty=" + isPenalty + "]\n";
 	}
 
 }

@@ -7,6 +7,9 @@ import EntitiesData.ResultData;
 
 public class Result {
 
+	/*
+	 * liste d'objet typé pour les données du fichier csv result
+	 */
 	private List<ResultData> resultData = new ArrayList<>();
 
 	public List<ResultData> getResultData() {

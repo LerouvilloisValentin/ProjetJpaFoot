@@ -2,27 +2,42 @@ package Service;
 
 import EntitiesCsv.GoalScorers;
 import EntitiesCsv.Result;
+import EntitiesCsv.Shootouts;
+import EntitiesData.ResultData;
 
 public class HandleData {
-	public static void main(String[] args) {
+	/*
+	 * lit le fichier csv dans un tableau d'obejt de type Result
+	 */
+	public static Result getResult() {
+		String filePath = ClassLoader.getSystemClassLoader().getResource("results.csv").getFile();
+		return ResultUtils.lire(filePath);
+	}
 
-//		String filePath = ClassLoader.getSystemClassLoader().getResource("results.csv").getFile();
-//		Result result = ResultUtils.lire(filePath);
-//		
-////		System.out.println(result);
-//		if (result == null) {
-//			System.out.println("L'application doit s'arrétée en raison d'une erreur d'exécution.");
-//			System.exit(-1);
-//		}
-		
+	/*
+	 * lit le fichier csv dans un tableau d'obejt de type GoalScorers
+	 */
+	public static GoalScorers getGoalScorers() {
 		String filePath2 = ClassLoader.getSystemClassLoader().getResource("goalscorers.csv").getFile();
-		GoalScorers result2 = GoalScorersUtils.lire(filePath2);
-		
-		System.out.println(result2);
-//		if (result2 == null) {
-//			System.out.println("L'application doit s'arrétée en raison d'une erreur d'exécution.");
-//			System.exit(-1);
-//		}
+		return GoalScorersUtils.lire(filePath2);
+	}
 
+	/*
+	 * lit le fichier csv dans un tableau d'objet de type Shootouts
+	 */
+	public static Shootouts getShootouts() {
+		String filePath3 = ClassLoader.getSystemClassLoader().getResource("shootouts.csv").getFile();
+		return ShootoutsUtils.lire(filePath3);
+	}
+
+	public static void main(String[] args) {
+//		Result result = getResult();
+//		System.out.println(result);
+//
+//		GoalScorers goalScorers = getGoalScorers();
+//		System.out.println(goalScorers);
+
+		Shootouts shootouts = getShootouts();
+		System.out.println(shootouts);
 	}
 }

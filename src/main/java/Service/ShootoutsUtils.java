@@ -1,3 +1,4 @@
+
 package Service;
 
 import java.io.File;
@@ -6,17 +7,15 @@ import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 
-import EntitiesCsv.GoalScorers;
+import EntitiesCsv.Shootouts;
 
-public class GoalScorersUtils {
+public class ShootoutsUtils {
 	/*
 	 * méthode qui permet la lecture du fichier
 	 */
-	public static GoalScorers lire(String cheminFichier) {
-		GoalScorers goalScorers = new GoalScorers();
-		/*
-		 * 
-		 */
+	public static Shootouts lire(String cheminFichier) {
+		Shootouts shootouts = new Shootouts();
+
 		List<String> lignes = null;
 		try {
 			File file = new File(cheminFichier);
@@ -31,9 +30,9 @@ public class GoalScorersUtils {
 				 * méthode qui permet d'ajouter une virgule entre chaques attributs du tableau
 				 * et qui les regroupent dans un attributs
 				 */
-				ParseurGoalScorers.ajoutLigne(goalScorers, ligne);
+				ParseurShootouts.ajoutLigne(shootouts, ligne);
 			}
-			return goalScorers;
+			return shootouts;
 
 		} catch (IOException e) {
 			System.out.println(e.getMessage());

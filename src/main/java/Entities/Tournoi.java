@@ -1,5 +1,6 @@
 package Entities;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import jakarta.persistence.Column;
@@ -13,42 +14,56 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "TOURNOI")
 public class Tournoi {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID_TOURNOI")
+    private String id;
 	@Column(name = "NOM_TOURNOI")
 	private String nomTournoi;
-	@OneToMany(mappedBy = "tournoi")
-	private Set<Match> matchs;
+//	@OneToMany(mappedBy = "tournoi")
+//	private Set<Match> matchs;
+	
+//	{
+//		matchs = new HashSet<>();
+//	}
 
 	public Tournoi() {
 		super();
 	}
 	
-	public Tournoi(String nomTournoi, Set<Match> matchs) {
+	public Tournoi(String nomTournoi) {
 		super();
 		this.nomTournoi = nomTournoi;
-		this.matchs = matchs;
+
 	}
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+    
 	public String getNomTournoi() {
 		return nomTournoi;
 	}
 
-	public Set<Match> getMatchs() {
-		return matchs;
-	}
+//	public Set<Match> getMatchs() {
+//		return matchs;
+//	}
 
 	public void setNomTournoi(String nomTournoi) {
 		this.nomTournoi = nomTournoi;
 	}
 
-	public void setMatchs(Set<Match> matchs) {
-		this.matchs = matchs;
-	}
+//	public void setMatchs(Set<Match> matchs) {
+//		this.matchs = matchs;
+//	}
 
 	@Override
 	public String toString() {
-		return "Tournoi [nomTournoi=" + nomTournoi + ", matchs=" + matchs + "]";
+		return "Tournoi [nomTournoi=" + nomTournoi + ", matchs=" + "]";
 	}
 
 }

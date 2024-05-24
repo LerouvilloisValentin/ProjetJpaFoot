@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import EntitiesData.GoalScorersData;
-import EntitiesData.ResultData;
 
 public class GoalScorers {
 
+	/*
+	 * liste d'objet typé pour les données du fichier csv goalscorers
+	 */
 	private List<GoalScorersData> GoalScorersData = new ArrayList<>();
 
 	public List<GoalScorersData> getGoalScorersData() {
@@ -20,7 +22,7 @@ public class GoalScorers {
 
 	@Override
 	public String toString() {
-		return "GoalScorers GoalScorersData=" + GoalScorersData ;
+		return "GoalScorers GoalScorersData=" + GoalScorersData;
 	}
-	
+
 }
