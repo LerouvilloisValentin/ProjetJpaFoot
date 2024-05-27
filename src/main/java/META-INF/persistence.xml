@@ -9,12 +9,10 @@
 
 		<properties>
 		<property name="hibernate.archive.autodetection" value="class"/>
-			<property name="hibernate.hbm2ddl.auto" value="create" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
 			
 			<!-- Drop and create à chaque redémarrage -->
-			<property
-				name="jakarta.persistence.schema-generation.database.action"
-				value="drop-and-create" />
+
 			<!-- Affichage des requêtes SQL -->
 			<property name="hibernate.show_sql" value="true" />
 
