@@ -12,56 +12,52 @@ import Service.HandleData;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import jakarta.persistence.TypedQuery;
 
 public class ConnectToJoueur {
 
-	public static void main(String[] args) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProjetJpa");
-		EntityManager em = emf.createEntityManager();
+    public static void main(String[] args) {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProjetJpa");
+        EntityManager em = emf.createEntityManager();
 
-		em.getTransaction().begin();
-		GoalScorers result = HandleData.getGoalScorers();
+        em.getTransaction().begin();
+        GoalScorers result = HandleData.getGoalScorers();
 
-		Map<String, Joueur> joueurMap = new HashMap<>();
-//		Map<String, Team> teamMap = new HashMap<>();
+        Map<String, Joueur> joueurMap = new HashMap<>();
+        Map<String, Team> teamMap = new HashMap<>();
 
-		Joueur currentScorerName;
-		Joueur currentTeam;
+        for (GoalScorersData data : result.getGoalScorersData()) {
+            String scorerName = data.getScorer();
+            String scorerCountry = data.getTeamScorer();
 
-		for (GoalScorersData data : result.getGoalScorersData()) {
-			LocalDate dateMatch = data.getDate();
-			String homeTeam = data.getHomeTeam();
-			String awayTeam = data.getAwayTeam();
-			String scorerName = data.getScorer();
-			String scorerCountry = data.getTeamScorer();
-			/*
-			 * ajoute Nom_Tournoi à TOURNOI
-			 */
-//			if (joueurMap.containsKey(scorerName)) {
-//				currentScorerName= joueurMap.get(scorerName);
-//			} else {
-//				currentScorerName = new Joueur();
-//				currentScorerName.setNom(scorerName);
-//				joueurMap.put(scorerName, currentScorerName);
-//				em.persist(currentScorerName);
-//			}
+            Team team = teamMap.get(scorerCountry);
+            if (team == null) {
+                TypedQuery<Team> query = em.createQuery("SELECT t FROM Team t WHERE t.country = :country", Team.class);
+                query.setParameter("country", scorerCountry);
+                team = query.getResultStream().findFirst().orElse(null);
 
-//			if (joueurMap.containsKey(scorerCountry)) {
-//				currentTeam = joueurMap.get(scorerCountry);
-//			} else {
-//				currentTeam = new Joueur();
-//				currentTeam.setTeam(scorerCountry);
-//				joueurMap.put(scorerCountry, currentTeam);
-//				em.persist(currentTeam);
-//			}
+                if (team != null) {
+                    teamMap.put(scorerCountry, team);
+                } 
+            }
 
-		}
+            if (team != null) {
+                Joueur joueur = joueurMap.get(scorerName);
+                if (joueur == null) {
+                    joueur = new Joueur();
+                    joueur.setNom(scorerName);
+                    joueur.setTeam(team); // Associer l'équipe au joueur
+                    joueurMap.put(scorerName, joueur);
+                    em.persist(joueur);
+                } else {
+                    joueur.setTeam(team); 
+                }
+            }
+        }
 
-		em.getTransaction().commit();
-
-		em.close();
-		emf.close();
-
-	}
-
+        em.getTransaction().commit();
+        em.close();
+        emf.close();
+    }
 }
+

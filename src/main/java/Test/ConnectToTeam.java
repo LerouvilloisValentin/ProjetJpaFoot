@@ -1,15 +1,11 @@
 package Test;
 
-import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
-import Entities.Joueur;
 import Entities.Team;
-import Entities.Tournoi;
 import EntitiesCsv.Result;
 import EntitiesData.ResultData;
 import Service.HandleData;
-import Service.ResultUtils;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -32,13 +28,13 @@ public class ConnectToTeam {
 			/*
 			 * ajoute COUNTRY à TEAM
 			 */
-			if (teamMap.containsKey(country)) {
-				currentCountry = teamMap.get(country);
-			} else {
+			if (!teamMap.containsKey(country)) {
 				currentCountry = new Team();
 				currentCountry.setCountry(country);
 				teamMap.put(country, currentCountry);
 				em.persist(currentCountry);
+			} else {
+				currentCountry = teamMap.get(country);
 			}
 
 			// Vous pouvez ajouter d'autres opérations sur currentTournament ici si
