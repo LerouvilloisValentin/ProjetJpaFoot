@@ -1,14 +1,11 @@
 package Entities;
 
-import java.util.HashSet;
-import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -17,7 +14,7 @@ public class Tournoi {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_TOURNOI")
-    private String id;
+    private Integer id;
 	@Column(name = "NOM_TOURNOI")
 	private String nomTournoi;
 //	@OneToMany(mappedBy = "tournoi")
@@ -37,11 +34,11 @@ public class Tournoi {
 
 	}
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     
