@@ -40,13 +40,13 @@ public class But {
 		super();
 	}
 	
-	public But(int id, String minuteButMarque, Boolean isPenalty, Boolean isOwnGoal, Match match, Joueur joueurs) {
+	public But( String minuteButMarque, Boolean isPenalty, Boolean isOwnGoal, Joueur joueurs) {
 		super();
-		this.id = id;
+//		this.id = id;
 		this.minuteButMarque = minuteButMarque;
 		this.isPenalty = isPenalty;
 		this.isOwnGoal = isOwnGoal;
-		this.match = match;
+//		this.match = match;
 		this.joueurs = joueurs;
 	}
 
