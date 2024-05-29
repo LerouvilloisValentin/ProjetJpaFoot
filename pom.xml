@@ -19,9 +19,9 @@
 			<version>8.4.0</version>
 		</dependency>
 		<dependency>
-			<groupId>org.hibernate.orm</groupId>
+			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>6.5.0.Final</version>
+			<version>6.0.2.Final</version>
 		</dependency>
 				<dependency>
 			<groupId>commons-io</groupId>
@@ -33,6 +33,11 @@
 			<artifactId>junit</artifactId>
 			<version>3.8.1</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.opencsv</groupId>
+			<artifactId>opencsv</artifactId>
+			<version>5.5.2</version>
 		</dependency>
 	</dependencies>
 </project>

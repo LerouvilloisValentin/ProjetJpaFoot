@@ -66,7 +66,7 @@ public class Match {
 	}
 
 	
-	public Match(LocalDate dateMatch, String city, Boolean neutral, String homeScore, String awayScore) {
+	public Match(LocalDate dateMatch, String city, Boolean neutral, String homeScore, String awayScore, Tournoi tournoi) {
 		super();
 //		this.id = id;
 		this.dateMatch = dateMatch;
@@ -77,7 +77,7 @@ public class Match {
 //		this.tirAuButs = tirAuButs;
 //		this.home_team = home_team;
 //		this.away_team = away_team;
-//		this.tournoi = tournoi;
+		this.tournoi = tournoi;
 //		this.buts = buts;
 	}
 
