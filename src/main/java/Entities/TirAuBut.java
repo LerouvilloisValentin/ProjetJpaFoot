@@ -37,7 +37,7 @@ public class TirAuBut {
 		super();
 
 	}
-	
+
 	public TirAuBut(Integer id, String winnerCountry, String firstShooter, Match match, Team team) {
 		super();
 		this.id = id;

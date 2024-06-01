@@ -52,11 +52,11 @@ public class Match {
 	private Tournoi tournoi;
 	@OneToMany(mappedBy = "match")
 	private Set<But> buts;
-	
+
 	{
 		tirAuButs = new HashSet<>();
 	}
-	
+
 	{
 		buts = new HashSet<>();
 	}
@@ -65,8 +65,8 @@ public class Match {
 		super();
 	}
 
-	
-	public Match(LocalDate dateMatch, String city, Boolean neutral, String homeScore, String awayScore, Tournoi tournoi) {
+	public Match(LocalDate dateMatch, String city, Boolean neutral, String homeScore, String awayScore,
+			Tournoi tournoi) {
 		super();
 //		this.id = id;
 		this.dateMatch = dateMatch;

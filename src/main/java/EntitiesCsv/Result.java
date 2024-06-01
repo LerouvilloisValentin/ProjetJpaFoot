@@ -22,7 +22,7 @@ public class Result {
 
 	@Override
 	public String toString() {
-		return "Result resultData=" + resultData ;
+		return "Result resultData=" + resultData;
 	}
-	
+
 }

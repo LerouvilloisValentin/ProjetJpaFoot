@@ -23,7 +23,7 @@ public class Shootouts {
 
 	@Override
 	public String toString() {
-		return "Result shootoutsData=" + shootoutsData ;
+		return "Result shootoutsData=" + shootoutsData;
 	}
-	
+
 }

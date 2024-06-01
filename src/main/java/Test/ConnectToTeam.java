@@ -31,14 +31,17 @@ public class ConnectToTeam {
 			if (!teamMap.containsKey(country)) {
 				currentCountry = new Team();
 				currentCountry.setCountry(country);
+				/*
+				 * insert dans le cache le pays
+				 */
 				teamMap.put(country, currentCountry);
 				em.persist(currentCountry);
 			} else {
+				/*
+				 * vérifie si le pays existe dans le cash et le récuppère
+				 */
 				currentCountry = teamMap.get(country);
 			}
-
-			// Vous pouvez ajouter d'autres opérations sur currentTournament ici si
-			// nécessaire
 		}
 
 		em.getTransaction().commit();

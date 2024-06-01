@@ -39,8 +39,8 @@ public class But {
 	public But() {
 		super();
 	}
-	
-	public But( String minuteButMarque, Boolean isPenalty, Boolean isOwnGoal, Joueur joueurs) {
+
+	public But(String minuteButMarque, Boolean isPenalty, Boolean isOwnGoal, Joueur joueurs) {
 		super();
 //		this.id = id;
 		this.minuteButMarque = minuteButMarque;
